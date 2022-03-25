@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
 .content {
   display: flex;
   align-items: center;
@@ -8,6 +18,11 @@
 .card-wrapper {
   width: 600px;
 }
+@media (max-width: 600px) {
+  .card-wrapper {
+    width: 100%;
+  }
+}
 .card-wrapper .card {
   position: relative;
   width: 300px;
@@ -15,6 +30,11 @@
   transform: perspective(1000px) translate(50%) scale(0.5) rotateY(0deg);
   transform-origin: 50px center;
   transition: 1s cubic-bezier(0, 0, 0, 0.94);
+}
+@media (max-width: 600px) {
+  .card-wrapper .card {
+    transform: perspective(1000px) translate(0%) scale(0.5) rotateY(0deg);
+  }
 }
 .card-wrapper .card .side {
   background: transparent;
@@ -65,6 +85,11 @@
 }
 .card-wrapper.active .card {
   transform: perspective(1000px) translate(0%) scale(1) rotateY(0);
+}
+@media (max-width: 600px) {
+  .card-wrapper.active .card {
+    transform: perspective(1000px) translate(-30%) scale(1) rotateY(0);
+  }
 }
 .card-wrapper.active .card .side.side-b {
   transform: perspective(1000px) rotateY(180deg);

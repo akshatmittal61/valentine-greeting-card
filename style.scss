@@ -1,4 +1,4 @@
-$cardRatio: calc(16/9);
+$cardRatio: calc(16 / 9);
 $cardWidth: 300px;
 $cardHeight: $cardWidth * $cardRatio;
 $cardColor: transparent;
@@ -11,6 +11,14 @@ $heartTitleColor: #ff0a54;
 $radius: 10px;
 $duration: 1s;
 $easingFn: cubic-bezier(0, 0, 0, 0.94);
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	overflow: hidden;
+}
 .content {
 	display: flex;
 	align-items: center;
@@ -20,11 +28,19 @@ $easingFn: cubic-bezier(0, 0, 0, 0.94);
 
 .card-wrapper {
 	width: $cardWidth * 2;
+	@media (max-width: 600px) {
+		width: 100%;
+	}
+
 	.card {
 		position: relative;
 		width: $cardWidth;
 		height: $cardHeight;
 		transform: perspective(1000px) translate(50%) scale(0.5) rotateY(-0deg);
+		@media (max-width: 600px) {
+			transform: perspective(1000px) translate(0%) scale(0.5)
+				rotateY(-0deg);
+		}
 		transform-origin: 50px center;
 		transition: $duration $easingFn;
 
@@ -91,7 +107,9 @@ $easingFn: cubic-bezier(0, 0, 0, 0.94);
 
 	&.active .card {
 		transform: perspective(1000px) translate(0%) scale(1) rotateY(0);
-
+		@media (max-width: 600px) {
+			transform: perspective(1000px) translate(-30%) scale(1) rotateY(0);
+		}
 		.side.side-b {
 			transform: perspective(1000px) rotateY(180deg);
 		}
