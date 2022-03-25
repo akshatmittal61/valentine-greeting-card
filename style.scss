@@ -25,13 +25,11 @@ body {
 	justify-content: center;
 	height: 100vh;
 }
-
 .card-wrapper {
 	width: $cardWidth * 2;
 	@media (max-width: 600px) {
 		width: 100%;
 	}
-
 	.card {
 		position: relative;
 		width: $cardWidth;
@@ -43,7 +41,6 @@ body {
 		}
 		transform-origin: 50px center;
 		transition: $duration $easingFn;
-
 		.side {
 			background: $cardColor;
 			position: absolute;
@@ -55,14 +52,12 @@ body {
 			transform-origin: right center;
 			transform-style: preserve-3d;
 			transition: $duration $easingFn;
-
 			&.side-a {
 				border-radius: $radius 0 0 $radius;
 			}
 			&.side-b {
 				border-radius: $radius 0 0 $radius;
 			}
-
 			.back,
 			.front {
 				position: absolute;
